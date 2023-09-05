@@ -1,4 +1,4 @@
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, MultisessionAppSupport } from "@clerk/nextjs";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
@@ -20,19 +20,21 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body className={cn(font.className, "bg-white dark:bg-[#313338]")}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem={false}
-            storageKey="discord-theme"
-          >
-            <ModalProvider />
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
+      <MultisessionAppSupport>
+        <html lang="en" suppressHydrationWarning>
+          <body className={cn(font.className, "bg-white dark:bg-[#313338]")}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              enableSystem={false}
+              storageKey="discord-theme"
+            >
+              <ModalProvider />
+              {children}
+            </ThemeProvider>
+          </body>
+        </html>
+      </MultisessionAppSupport>
     </ClerkProvider>
   );
 }
