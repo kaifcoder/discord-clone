@@ -5,7 +5,6 @@ import { useRouter, useParams } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import ActionTooltip from "../action-tooltip";
-import { Label } from "@radix-ui/react-dropdown-menu";
 
 interface NavigationItemProps {
   id: string;
