@@ -15,7 +15,7 @@ interface NavigationItemProps {
 
 const NavigationItem = ({ id, name, imageUrl }: NavigationItemProps) => {
   const router = useRouter();
-  const { serverId } = useParams();
+  const { serverId }: any = useParams();
 
   const onClick = () => {
     router.push(`/servers/${id}`);
@@ -23,7 +23,7 @@ const NavigationItem = ({ id, name, imageUrl }: NavigationItemProps) => {
 
   return (
     <ActionTooltip label={name} side="right" align="center">
-      <button onClick={onClick} className="group relative flex items-center">
+      <button onClick={onClick} className="relative flex items-center group">
         <div
           className={cn(
             "absolute left-0 bg-primary rounded-r-full w-[4px] transition-all",
