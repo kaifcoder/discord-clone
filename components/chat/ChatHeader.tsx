@@ -3,6 +3,8 @@ import React from "react";
 import MoblieToggle from "../mobile-toggle";
 import UserAvatar from "../UserAvatar";
 import { SocketIndicator } from "../socket-indicator";
+import { ChatVideoButton } from "./chat-video-button";
+import { ChatAudioButton } from "./chat-audio-button";
 
 interface Props {
   serverId: string;
@@ -23,6 +25,8 @@ const ChatHeader = ({ serverId, name, type, imageUrl }: Props) => {
       )}
       <p className="font-semibold text-black text-md dark:text-white">{name}</p>
       <div className="flex items-center ml-auto">
+        {type === "conversation" && <ChatAudioButton />}
+        {type === "conversation" && <ChatVideoButton />}
         <SocketIndicator />
       </div>
     </div>
